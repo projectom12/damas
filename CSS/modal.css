@@ -1,0 +1,43 @@
+.modal-title{
+    font-size: 60px;
+ 
+}
+
+
+div.modal-header{
+    text-align: center;
+  
+}
+
+.modal-header{
+
+    
+}
+
+input{
+    border-radius: 10px;
+}
+
+
+
+.tituloEstupido {
+    font-size: 60px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.modal-content{
+    margin-top: 70px;
+    background-image: linear-gradient(to bottom right, wheat, burlywood);
+    text-align: center;
+    width: 500px;
+    height: 500px;
+  
+
+}
+
+.btn{
+    border-radius: 10px;
+    border: black;
+}
