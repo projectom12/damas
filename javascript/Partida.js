@@ -1,12 +1,12 @@
 class Partida{
-    constructor(booleanCanviTorn){
+  
+    constructor(){
         this._booleanCanviTorn = true;
     
         
     }
  
      saveNames(){
-
 
 
         let inputValueJug1 = document.getElementById("jug1").value; 
@@ -21,12 +21,7 @@ class Partida{
         //INSERTA NOMBRES DE LOS JUGADORES    
         con.innerHTML  = inputValueJug1; 
         con2.innerHTML = inputValueJug2;
-    
 
-        // function iluminar(posicion){
-
-        // }
-        
         
 
         //ESCONDE MODAL
@@ -53,6 +48,15 @@ class Partida{
     
         
     }
+
+    get booleanCanviTorn(){
+        return this._booleanCanviTorn;
+    }
+
+    set booleanCanviTorn(booleanCanviTorn){
+        this._booleanCanviTorn = booleanCanviTorn;
+    }
+
 }
 
     

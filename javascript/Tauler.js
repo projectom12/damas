@@ -76,24 +76,48 @@ class Tauler{
        // this.actualiza();  
     }
 
+    // origenX;
+    // origenY;
+    // destinacioX;
+    // destinacioY;
 
-    // actualiza(){
+    actualiza(){
+        console.log(this.matriuTauler[this.origenX][this.origenY]);
+        console.log("X",this.origenX," ","Y",this.origenY);
+        console.log("X",this.destinacioX,"  y:",this.destinacioY);
+        // console.log("ho",this.matriuTauler[this.origenX][this.origenY]);
+        // console.log("ho",this.matriuTauler[this.destinacioX][this.destinacioY]);
+        console.log("fitxa: Actu",this.matriuTauler[this.origenX][this.origenY].stringColor);
+        
+      
+    if(this.matriuTauler[this.origenX][this.origenY].stringColor=="black"){    
 
+    if(((this.destinacioX-this.origenX === 1) &&  (this.origenY-this.destinacioY === 1 || this.origenY-this.destinacioY===-1))){
+        console.log("he entrat");
+       this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+       this.matriuTauler[this.origenX][this.origenY]=0;
+        console.log(this.matriuTauler);
+        //moureImatge(this.origenX,this.origenY);
+    }
+    //    console.log(this.origenX," ",this.origenY);
+    
 
+    }
+
+        
      
 
-    // }
+    }
 
     seleciona(r,c){
-      //  console.log("numeritos:"+r+c);
-     // console.log(r,c);
-        return this.matriuTauler[r][c];
-        //console.log(matriuTauler);
-        //console.log(this.matriuTauler[row][colum]);
-        //let fichaQueQuieroMover = document.getElementsById("r"+row+"c"+colum);
-        //console.log("move: "+fichaQueQuieroMover);
-        //console.log("move ");
 
+        return this.matriuTauler[r][c];
+
+    }
+
+    moureImatge(){
+
+        
 
     }
 

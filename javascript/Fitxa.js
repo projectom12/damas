@@ -8,14 +8,14 @@ class Fitxa{
     }
     
     get numberFila(){
-        return this.numberFila;
+        return this._numberFila;
     }
     set numberFila(numberFila){
         this._numberFila = numberFila;
     }
 
     get numberColumna(){
-        return this.numberColumna;
+        return this._numberColumna;
     }
 
     set numberColumna(numberColumna){
@@ -23,7 +23,7 @@ class Fitxa{
     }
 
     get booleanReina(){
-        return this.booleanReina;
+        return this._booleanReina;
     }
 
     set booleanReina(booleanReina){
@@ -31,7 +31,7 @@ class Fitxa{
     }
 
     get stringColor(){
-        return this.stringColor;
+        return this._stringColor;
     }
 
     set stringColor(stringColor){
