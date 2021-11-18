@@ -1,4 +1,5 @@
 class Partida{
+    booleanCanviTorn=true;
   
     constructor(){
         this._booleanCanviTorn = true;
@@ -11,7 +12,8 @@ class Partida{
 
         let inputValueJug1 = document.getElementById("jug1").value; 
         let inputValueJug2 = document.getElementById("jug2").value; 
-        
+        inputValueJug1 = "raul";
+        inputValueJug2 = "rulas";
     
         if(inputValueJug1 !="" && inputValueJug2 != "")    {
        
@@ -25,7 +27,7 @@ class Partida{
         
 
         //ESCONDE MODAL
-        $('#exampleModal').modal('hide')
+        //$('#exampleModal').modal('hide')
         
         //LLENA TABLERO
         tabla.ompleTauler();

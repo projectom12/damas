@@ -82,21 +82,36 @@ class Tauler{
     // destinacioY;
 
     actualiza(){
-        console.log(this.matriuTauler[this.origenX][this.origenY]);
-        console.log("X",this.origenX," ","Y",this.origenY);
-        console.log("X",this.destinacioX,"  y:",this.destinacioY);
+        // console.log(this.matriuTauler[this.origenX][this.origenY]);
+        // console.log("X",this.origenX," ","Y",this.origenY);
+        // console.log("X",this.destinacioX,"  y:",this.destinacioY);
         // console.log("ho",this.matriuTauler[this.origenX][this.origenY]);
         // console.log("ho",this.matriuTauler[this.destinacioX][this.destinacioY]);
-        console.log("fitxa: Actu",this.matriuTauler[this.origenX][this.origenY].stringColor);
+       // console.log("fitxa: Actu",this.matriuTauler[this.origenX][this.origenY].stringColor);
         
       
     if(this.matriuTauler[this.origenX][this.origenY].stringColor=="black"){    
 
     if(((this.destinacioX-this.origenX === 1) &&  (this.origenY-this.destinacioY === 1 || this.origenY-this.destinacioY===-1))){
-        console.log("he entrat");
+       //console.log("he entrat");
+          
+          //remove class verd
+          //esborra imatge
+          let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+          divImage.firstChild.replaceWith("");
+          divImage.classList.remove("clickVerde");
+     
        this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
        this.matriuTauler[this.origenX][this.origenY]=0;
-        console.log(this.matriuTauler);
+         //inserta imagen
+       let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+       img.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaNegra.png>";
+     
+       //juegan ahora las blancas
+       partida.booleanCanviTorn = false;
+       //console.log(partida.booleanCanviTorn);
+
+        //console.log(this.matriuTauler);
         //moureImatge(this.origenX,this.origenY);
     }
     //    console.log(this.origenX," ",this.origenY);
@@ -104,10 +119,46 @@ class Tauler{
 
     }
 
+    //move blancas
+    //to do
+    if(this.matriuTauler[this.origenX][this.origenY].stringColor=="white"){ 
+
+        if(((this.destinacioX-this.origenX === -1) &&  (this.origenY-this.destinacioY === -1 || this.origenY-this.destinacioY=== 1))){
+           // console.log("he entrat");
+              
+              //remove class verd
+              //esborra imatge
+              let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+              divImage.firstChild.replaceWith("");
+              divImage.classList.remove("clickVerde");
+         
+           this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+           this.matriuTauler[this.origenX][this.origenY]=0;
+             //inserta imagen
+           let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+           img.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaRoja.png>";
+         
+           //juegan ahora las blancas
+           partida.booleanCanviTorn = true;
+          // console.log(partida.booleanCanviTorn);
+    
+            //console.log(this.matriuTauler);
+            //moureImatge(this.origenX,this.origenY);
+        }
+        //    console.log(this.origenX," ",this.origenY);
+        
+    
+        }
+
+
+
+     }
+
         
      
 
-    }
+    
+
 
     seleciona(r,c){
 
