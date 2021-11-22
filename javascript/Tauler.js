@@ -4,6 +4,15 @@ class Tauler{
     origenY;
     destinacioX;
     destinacioY;
+    posicioMatarY;
+    posicioMatarX;
+    mata=false;
+    mataIzquierda = false;
+    mataDerecha = false;
+    mataIzquierda2 = false;
+    mataDerecha2=false;
+  
+    
     
     constructor(matriuTauler){
 
@@ -18,7 +27,6 @@ class Tauler{
             [0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0] 
            ]
-           //console.log("const"+matriuTauler[1][1]);
                 
     }
 
@@ -66,9 +74,6 @@ class Tauler{
             [Fitxa21,0,Fitxa22,0,Fitxa23,0,Fitxa24,0] 
            ]
 
-   
-
-     
         
       //  console.log("imprimiendo ",this.matriuTauler);
            
@@ -82,83 +87,623 @@ class Tauler{
     // destinacioY;
 
     actualiza(){
-        // console.log(this.matriuTauler[this.origenX][this.origenY]);
-        // console.log("X",this.origenX," ","Y",this.origenY);
-        // console.log("X",this.destinacioX,"  y:",this.destinacioY);
-        // console.log("ho",this.matriuTauler[this.origenX][this.origenY]);
-        // console.log("ho",this.matriuTauler[this.destinacioX][this.destinacioY]);
-       // console.log("fitxa: Actu",this.matriuTauler[this.origenX][this.origenY].stringColor);
-        
+       
       
-    if(this.matriuTauler[this.origenX][this.origenY].stringColor=="black"){    
+
+    if(this.matriuTauler[this.origenX][this.origenY].stringColor=="black"){  
+     
 
     if(((this.destinacioX-this.origenX === 1) &&  (this.origenY-this.destinacioY === 1 || this.origenY-this.destinacioY===-1))){
-       //console.log("he entrat");
           
-          //remove class verd
-          //esborra imatge
-          let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
-          divImage.firstChild.replaceWith("");
-          divImage.classList.remove("clickVerde");
+        //remove class verd
+        //esborra imatge
+        let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+        divImage.firstChild.replaceWith("");
+        divImage.classList.remove("clickVerde");
      
        this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
        this.matriuTauler[this.origenX][this.origenY]=0;
          //inserta imagen
        let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
-       img.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaNegra.png>";
+       img.innerHTML="<img src=img/fichaNegra.png>";
      
        //juegan ahora las blancas
        partida.booleanCanviTorn = false;
-       //console.log(partida.booleanCanviTorn);
-
-        //console.log(this.matriuTauler);
-        //moureImatge(this.origenX,this.origenY);
+  
     }
-    //    console.log(this.origenX," ",this.origenY);
+
+       //funciona corectamente
+        if(this.origenY==7){
+                if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="white"){
+                    this.mataIzquierda=true;
+                   // console.log("origenY: ",this.origenY,this.origenX);  
+                     
+                                         
+         }
+        
+        }
+
+        if(this.origenY==0){
+            if(this.matriuTauler[this.origenX+1][this.origenY+1].stringColor=="white"){
+                this.mataDerecha=true;
+               // console.log("origenY: ",this.origenY,this.origenX);  
+                
+          
+            }
+
+           }
+           //console.log("antes",this.mata);
+        //mata hacia la derecha
+        if(this.origenY>0&&this.origenY<7){
+            if(this.matriuTauler[this.origenX+1][this.origenY+1].stringColor=="white"){
+                this.mataDerecha=true;
+              //  console.log("derecha: ",this.mataDerecha);
+         
+            }
+
+        }
+
+        if(this.origenY>0&&this.origenY<7){
+            if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="white"){
+                this.mataIzquierda=true;
+              //  console.log("derecha: ",this.mataIzquierda);
+         
+            }
+
+        }
+
+
+
+        //this.mata derecha aplica el mata a este
+
+
+  
     
+        //funciona
+        if((this.destinacioX-this.origenX === 2 )&&(this.origenY-this.destinacioY=== 2) && (this.mataIzquierda==true)){
+        
+            let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+            divImage.firstChild.replaceWith("");
+            divImage.classList.remove("clickVerde");
+           
+             this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+             this.matriuTauler[this.origenX][this.origenY]=0;
+               //inserta imagen
+             let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+             img.innerHTML="<img src=img/fichaNegra.png>";
+           
+             //juegan ahora las blancas
+             partida.booleanCanviTorn = false;
+            
+    
+            if(this.origenY-this.destinacioY ==2){
+                //revisar
+                this.matriuTauler[this.destinacioX-1][this.destinacioY+1]=0;
+                let rDestinacio=this.origenX+1;
+                let cDestinacio=this.origenY-1;
+                let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
+                esborraImg.firstChild.replaceWith("");
+        
+               
+    
+            }
+                this.mataDerecha=false;
+                this.mataIzquierda=false;
+            }
+
+            if(((this.destinacioX-this.origenX === 2 ))&&(this.origenY-this.destinacioY === -2) && (this.mataDerecha==true)){
+        
+                let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+                divImage.firstChild.replaceWith("");
+                divImage.classList.remove("clickVerde");
+               
+                 this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+                 this.matriuTauler[this.origenX][this.origenY]=0;
+                   //inserta imagen
+                 let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+                 img.innerHTML="<img src=img/fichaNegra.png>";
+               
+                 //juegan ahora las blancas
+                 partida.booleanCanviTorn = false;
+                
+                if(this.origenY-this.destinacioY ==-2){
+                    this.matriuTauler[this.destinacioX-1][this.destinacioY-1]=0;
+                    let rDestinacio=this.origenX+1;
+                    let cDestincaio=this.origenY+1;
+                    let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
+                    esborraImg.firstChild.replaceWith("");
+                             
+        
+                }         
+         
+                this.mataDerecha = false;
+                this.mataIzquierda = false;
+                }
+
+            
+ 
 
     }
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////terminan negras
+
 
     //move blancas
-    //to do
-    if(this.matriuTauler[this.origenX][this.origenY].stringColor=="white"){ 
-
+    //si la fitxa pasada es blanca i no es reina entra
+    if((this.matriuTauler[this.origenX][this.origenY].stringColor=="white") && (this.matriuTauler[this.origenX][this.origenY].booleanReina==false)){ 
+ 
+    
+        //moviment fitxa blanca cap adalt
         if(((this.destinacioX-this.origenX === -1) &&  (this.origenY-this.destinacioY === -1 || this.origenY-this.destinacioY=== 1))){
-           // console.log("he entrat");
-              
+
               //remove class verd
               //esborra imatge
-              let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
-              divImage.firstChild.replaceWith("");
-              divImage.classList.remove("clickVerde");
+             let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+             divImage.firstChild.replaceWith("");
+             divImage.classList.remove("clickVerde");
          
-           this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
-           this.matriuTauler[this.origenX][this.origenY]=0;
+             this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+              this.matriuTauler[this.origenX][this.origenY]=0;
              //inserta imagen
-           let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
-           img.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaRoja.png>";
-         
-           //juegan ahora las blancas
-           partida.booleanCanviTorn = true;
-          // console.log(partida.booleanCanviTorn);
-    
-            //console.log(this.matriuTauler);
-            //moureImatge(this.origenX,this.origenY);
+             let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+             img.innerHTML="<img src=img/fichaRoja.png>";
+
+            //es reina
+            if(this.destinacioX==0){
+                this.matriuTauler[this.destinacioX][this.destinacioY].booleanReina=true;
+                }
+                    
+                //juegan ahora las blancas
+                partida.booleanCanviTorn = true;
+
         }
-        //    console.log(this.origenX," ",this.origenY);
+      
+        //comprobamos si estan en las esquinas o no 
         
-    
+        
+        if(this.origenY==7){
+                if(this.matriuTauler[this.origenX-1][this.origenY-1].stringColor=="black"){
+                    this.mataIzquierda=true;
+         }
+        
+        }
+
+        if(this.origenY==0 ){
+            if(this.matriuTauler[this.origenX-1][this.origenY+1].stringColor=="black"){
+                this.mataDerecha=true;
+              
+            }
+
+           }
+
+        //mata hacia la derecha
+        if(this.origenY>0&&this.origenY<7){
+            if(this.matriuTauler[this.origenX-1][this.origenY+1].stringColor=="black"){
+                this.mataDerecha=true;
+               // console.log("derecha: ",this.mataDerecha);
+         
+            }
+
+        }
+        //mata izquierda
+        if(this.origenY>0&&this.origenY<7){
+            if(this.matriuTauler[this.origenX-1][this.origenY-1].stringColor=="black"){
+                this.mataIzquierda=true;
+               // console.log("derecha: ",this.mataIzquierda);
+         
+            }
+
         }
 
 
+
+
+        
+        if((this.destinacioX-this.origenX === -2 )&&(this.origenY-this.destinacioY === -2 ) && (this.mataDerecha==true)){
+        
+        let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+        divImage.firstChild.replaceWith("");
+        divImage.classList.remove("clickVerde");
+       
+         this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+         this.matriuTauler[this.origenX][this.origenY]=0;
+           //inserta imagen
+         let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+         img.innerHTML="<img src=img/fichaRoja.png>";
+        
+         //es reina
+         if(this.destinacioX==0){
+            this.matriuTauler[this.destinacioX][this.destinacioY].booleanReina=true;
+            }
+       
+         //juegan ahora las blancas
+         partida.booleanCanviTorn = true;
+        //asdcsdv
+        if(this.origenY-this.destinacioY ==-2){
+   
+            this.matriuTauler[this.destinacioX+1][this.destinacioY-1]=0;
+             let rDestinacio=this.origenX-1;
+             let cDestincaio=this.origenY+1;
+            let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
+            esborraImg.firstChild.replaceWith("");
+          
+            
+
+        }
+
+
+        this.mataDerecha = false;
+        this.mataIzquierda = false;
+        
+        
+        }
+
+        if((this.destinacioX-this.origenX === -2 )&&(this.origenY-this.destinacioY === 2 ) && (this.mataIzquierda==true)){
+            let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+            divImage.firstChild.replaceWith("");
+            divImage.classList.remove("clickVerde");
+           
+             this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+             this.matriuTauler[this.origenX][this.origenY]=0;
+               //inserta imagen
+             let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+             img.innerHTML="<img src=img/fichaRoja.png>";
+            
+             //es reina
+             if(this.destinacioX==0){
+                this.matriuTauler[this.destinacioX][this.destinacioY].booleanReina=true;
+                }
+           
+             //juegan ahora las blancas
+             partida.booleanCanviTorn = true;
+            //asdcsdv
+         
+    
+            if(this.origenY-this.destinacioY ==2){
+           
+                this.matriuTauler[this.destinacioX+1][this.destinacioY+1]=0;
+                 let rDestinacio=this.origenX-1;
+                 let cDestinacio=this.origenY-1;
+                let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
+                esborraImg.firstChild.replaceWith("");
+        
+               
+    
+            }
+
+            this.mataDerecha = false;
+            this.mataIzquierda = false;
+
+
+        }
+
+     
+        
+      
+        }
+        /////////////////////////////////////EMPIEZAN LAS REINAS//////////////////////////////////////////////
+        //////////////////////////////////////////////////////
+            //move blancas reinas
+    if(this.matriuTauler[this.origenX][this.origenY].stringColor=="white" && this.matriuTauler[this.origenX][this.origenY].booleanReina==true){ 
+
+       
+
+        //si esta en las esquinas superiores los dos siguientes if
+        if(this.origenY==7){
+            if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="black"){
+                this.mataIzquierda=true;
+               console.log("he entrado 1");                               
+                   
+     }
+    
+    }
+
+    if(this.origenY==0){
+        if(this.matriuTauler[this.origenX+1][this.origenY+1].stringColor=="black"){
+            this.mataDerecha=true;
+         //   console.log("origenY: ",this.origenY,this.origenX);  
+         console.log("he entrado 2");   
+            
+      
+        }
+       }
+
+       //esquinas inferiores
+    //     if(this.origenY==7){
+    //         if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="black"){
+    //             this.mataIzquierda=true;
+    //            console.log("he entrado 1");                               
+                   
+    //     }
+        
+    //     }
+
+    // if(this.origenY==0){
+    //     if(this.matriuTauler[this.origenX+1][this.origenY+1].stringColor=="black"){
+    //         this.mataDerecha=true;
+    //      //   console.log("origenY: ",this.origenY,this.origenX);  
+    //      console.log("he entrado 2");   
+            
+      
+    //     }
+    //    }
+       //console.log("antes",this.mata);
+    //mata hacia la derecha
+    //los dos del 1 funcionan comprueban hacia abajo
+    if(this.origenX!=7){
+    if(this.origenY>0&&this.origenY<7){
+        if(this.matriuTauler[this.origenX+1][this.origenY+1].stringColor=="black"){
+            this.mataDerecha=true;
+            console.log("abajo derecha: ",this.mataDerecha);
+     
+        }
+
+        if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="black"){
+            this.mataIzquierda=true;
+            console.log("abajo izquierda: ",this.mataIzquierda);
+            
+        }
+        
+
+    }
+    }
+    //si esta al final no puede restar entoces por eso siempre que no sea 0 puede restar para matar hacia arriba
+    if(this.origenX!=0 && this.origenY!=0 && this.origenY!=7){
+
+        if(this.matriuTauler[this.origenX-1][this.origenY+1].stringColor=="black"){
+            this.mataDerecha2=true;
+            console.log("arriba derecha: ",this.mataDerecha2);
+     
+        }
+
+        if(this.matriuTauler[this.origenX-1][this.origenY-1].stringColor=="black"){
+                    this.mataIzquierda2=true;
+                    console.log("arriba izquierda: ",this.mataIzquierda2);
+             
+                }
+
+
+    }
+    //Si la reina esta a la esquerra que comprovi nomes la dreta
+    if(this.origenY==0){
+        if(this.matriuTauler[this.origenX-1][this.origenY+1].stringColor=="black"){
+            this.mataDerecha2=true;
+            console.log("arriba derecha: ",this.mataDerecha2);
+     
+        }
+
+    }
+    //Si la reina esta a la dreta que comprovi nomes la esquerra
+    if(this.origenY==7){
+        if(this.matriuTauler[this.origenX-1][this.origenY-1].stringColor=="black"){
+            this.mataIzquierda2=true;
+            console.log("arriba izquierda: ",this.mataIzquierda2);
+     
+        }
+
+    }
+
+   
+
+    //comprobar hacia arriba
+    //
+      //  
+    //
+     //
+       
+     //movimiento hacia abajo
+        if (((this.destinacioX-this.origenX === 1) &&  (this.origenY-this.destinacioY === 1 || this.origenY-this.destinacioY===-1))){
+         //remove class verd
+         //esborra imatge
+         let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+         divImage.firstChild.replaceWith("");
+         divImage.classList.remove("clickVerde");
+      
+        this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+        this.matriuTauler[this.origenX][this.origenY]=0;
+          //inserta imagen
+        let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+        img.innerHTML="<img src=img/fichaRoja.png>";
+      
+        //juegan ahora las blancas
+        partida.booleanCanviTorn = true;
+ 
+        }
+        //movimiento hacia arriba
+         //moviment fitxa blanca cap adalt
+         if(((this.destinacioX-this.origenX === -1) &&  (this.origenY-this.destinacioY === -1 || this.origenY-this.destinacioY=== 1))){
+
+            //remove class verd
+            //esborra imatge
+           let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+           divImage.firstChild.replaceWith("");
+           divImage.classList.remove("clickVerde");
+       
+           this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+            this.matriuTauler[this.origenX][this.origenY]=0;
+           //inserta imagen
+           let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+           img.innerHTML="<img src=img/fichaRoja.png>";
+
+          //es reina
+          if(this.destinacioX==0){
+              this.matriuTauler[this.destinacioX][this.destinacioY].booleanReina=true;
+              }
+                  
+              //juegan ahora las blancas
+              partida.booleanCanviTorn = true;
+
+      }
+      //MATA IZQUIERDA 1
+      //mata hacia abajo
+      if(((this.destinacioX-this.origenX === 2 ))&&( this.origenY-this.destinacioY=== 2) && (this.mataIzquierda==true)){
+        
+        let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+        divImage.firstChild.replaceWith("");
+        divImage.classList.remove("clickVerde");
+       
+         this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+         this.matriuTauler[this.origenX][this.origenY]=0;
+           //inserta imagen
+         let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+         img.innerHTML="<img src=img/fichaRoja.png>";
+       
+         //juegan ahora las blancas
+         partida.booleanCanviTorn = true;
+        
+        // if(this.origenY-this.destinacioY ==-2){
+        //     //hecho
+
+        //     this.matriuTauler[this.destinacioX-1][this.destinacioY-1]=0;
+        //      let rDestinacio=this.origenX+1;
+        //      let cDestincaio=this.origenY+1;
+        //     let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
+        //     esborraImg.firstChild.replaceWith("");
+                     
+
+        // }
+
+        if(this.origenY-this.destinacioY ==2){
+            //revisar
+            this.matriuTauler[this.destinacioX-1][this.destinacioY+1]=0;
+             let rDestinacio=this.origenX+1;
+             let cDestinacio=this.origenY-1;
+            let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
+            esborraImg.firstChild.replaceWith("");
+    
+           
+
+        }
+        
+        
+        }
+        //MATA IZQUIERDA 2 //////solo falta este arriba izquierda no borra fitxa revisar i arriba derecha no hace
+        if(((this.destinacioX-this.origenX === -2 ))&&( this.origenY-this.destinacioY=== 2) && (this.mataIzquierda2==true)){
+        
+            let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+            divImage.firstChild.replaceWith("");
+            divImage.classList.remove("clickVerde");
+           
+             this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+             this.matriuTauler[this.origenX][this.origenY]=0;
+               //inserta imagen
+             let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+             img.innerHTML="<img src=img/fichaRoja.png>";
+           
+             //juegan ahora las blancas
+             partida.booleanCanviTorn = true;
+            
+            // if(this.origenY-this.destinacioY ==-2){
+            //     //hecho
+    
+            //     this.matriuTauler[this.destinacioX-1][this.destinacioY-1]=0;
+            //      let rDestinacio=this.origenX+1;
+            //      let cDestincaio=this.origenY+1;
+            //     let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
+            //     esborraImg.firstChild.replaceWith("");
+                         
+    
+            // }
+  
+            if(this.origenY-this.destinacioY ==2){
+   
+                this.matriuTauler[this.destinacioX+1][this.destinacioY+1]=0;
+                let rDestinacio=this.origenX-1;
+                let cDestinacio=this.origenY-1;
+               let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
+               esborraImg.firstChild.replaceWith("");
+              
+                
+    
+            }
+            
+            
+            }
+        //Mata derecha 1
+        //abajo derecha ((creo) es la 1 de la noxe) 
+        if(((this.destinacioX-this.origenX === 2 ))&&( this.origenY-this.destinacioY=== -2) && (this.mataDerecha==true)){
+        
+            let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+            divImage.firstChild.replaceWith("");
+            divImage.classList.remove("clickVerde");
+           
+             this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+             this.matriuTauler[this.origenX][this.origenY]=0;
+               //inserta imagen
+             let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+             img.innerHTML="<img src=img/fichaRoja.png>";
+           
+             //juegan ahora las blancas
+             partida.booleanCanviTorn = true;
+            
+            // if(this.origenY-this.destinacioY ==-2){
+            //     //hecho
+    
+            //     this.matriuTauler[this.destinacioX-1][this.destinacioY-1]=0;
+            //      let rDestinacio=this.origenX+1;
+            //      let cDestincaio=this.origenY+1;
+            //     let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
+            //     esborraImg.firstChild.replaceWith("");
+                         
+    
+            // }
+    
+            if(this.origenY-this.destinacioY ==-2){
+                this.matriuTauler[this.destinacioX-1][this.destinacioY-1]=0;
+                let rDestinacio=this.origenX+1;
+                let cDestincaio=this.origenY+1;
+                let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
+                esborraImg.firstChild.replaceWith("");
+                         
+    
+            }    
+            
+            
+            }
+            //MATA DERECHA 2
+            if(((this.destinacioX-this.origenX === -2 ))&&( this.origenY-this.destinacioY=== -2) && (this.mataDerecha2==true)){
+
+                let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
+                divImage.firstChild.replaceWith("");
+                divImage.classList.remove("clickVerde");
+               
+                 this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
+                 this.matriuTauler[this.origenX][this.origenY]=0;
+                   //inserta imagen
+                 let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
+                 img.innerHTML="<img src=img/fichaRoja.png>";
+               
+                 //juegan ahora las blancas
+                 partida.booleanCanviTorn = true;
+                  
+        //asdcsdv
+        if(this.origenY-this.destinacioY ==-2){
+   
+            this.matriuTauler[this.destinacioX+1][this.destinacioY-1]=0;
+             let rDestinacio=this.origenX-1;
+             let cDestincaio=this.origenY+1;
+            let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
+            esborraImg.firstChild.replaceWith("");
+
+                 
+        }
+            }
+     
 
      }
 
+     //matar reina 
+  
+     this.mataDerecha=false;
+     this.mataIzquierda=false;
+        console.log(this.mataDerecha);
+        console.log(this.mataIzquierda);
         
-     
+        //console.log("Act: ",this.matriuTauler);
+        
+     }
 
-    
-
+        
 
     seleciona(r,c){
 

@@ -22,6 +22,7 @@ for(let i = 0; i < array2.length; i++){
     c = parseInt(this.getAttribute("id").charAt(3));
     
   
+  
 
     contingut = tabla.seleciona(r,c);
     //console.log(contingut.stringColor);

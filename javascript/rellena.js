@@ -25,7 +25,7 @@ for(let i = 0; i <= array.length; i++){
             
             var el = document.getElementById("r"+j+"c"+i);
             //inserta imagen
-            el.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaNegra.png>";
+            el.innerHTML="<img src=img/fichaNegra.png>";
             el.classList.add("columnaNegra");
           
 
@@ -42,7 +42,7 @@ for(let i = 0; i <= array.length; i++){
             array[i].setAttribute("id","r"+"1"+"c"+segunda);
             //inserta imagen
             var el = document.getElementById("r"+j+"c"+segunda);
-            el.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaNegra.png>";
+            el.innerHTML="<img src=img/fichaNegra.png>";
             el.classList.add("columnaNegra");
             segunda++;
 
@@ -52,13 +52,14 @@ for(let i = 0; i <= array.length; i++){
     } 
 // }
 
-    for(let j=2;j<=2;j++){
+   
         if(i>15 && i < 24){
+            let j = 2;
             if(i%2!=0){
                 array[i].setAttribute("id","r"+j+"c"+tercer);
                  //inserta imagen
                 var el = document.getElementById("r"+j+"c"+tercer);
-                el.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaNegra.png>";
+                el.innerHTML="<img src=img/fichaNegra.png>";
                 el.classList.add("columnaNegra");
                 tercer++;
 
@@ -66,10 +67,10 @@ for(let i = 0; i <= array.length; i++){
                 tercer++;
             }
         } 
-    }
+    
 
-    for(let j=3;j<=3;j++){
         if(i>23 && i < 32){
+            let j = 3;
             if(i%2==0){
                 array[i].setAttribute("id","r"+j+"c"+septima);
                  //inserta imagen
@@ -81,10 +82,11 @@ for(let i = 0; i <= array.length; i++){
                 septima++;
             }
         } 
-    }
+    
 
-    for(let j=4;j<=4;j++){
+   
         if(i>31 && i < 40){
+            let j = 4;
             if(i%2!=0){
                 array[i].setAttribute("id","r"+j+"c"+octava);
                  //inserta imagen
@@ -96,15 +98,16 @@ for(let i = 0; i <= array.length; i++){
                 octava++;
             }
         } 
-    }
+    
 
-    for(let j=5;j<=5;j++){
+   
         if(i>39 && i < 48){
+            let j = 5;
             if(i%2==0){
                 array[i].setAttribute("id","r"+j+"c"+quarta);
                 //inserta imagen
                 var el = document.getElementById("r"+j+"c"+quarta);
-                el.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaRoja.png>";
+                el.innerHTML="<img src=img/fichaRoja.png>";
                 el.classList.add("columnaNegra");
                 quarta++;
 
@@ -112,15 +115,16 @@ for(let i = 0; i <= array.length; i++){
                 quarta++;
             }
         } 
-    }
+    
 
-    for(let j=6;j<=6;j++){
+   
         if(i>47 && i < 56){
+            let j = 6;
             if(i%2!=0){
                 array[i].setAttribute("id","r"+j+"c"+quinta);
                 //inserta imagen
                 var el = document.getElementById("r"+j+"c"+quinta);
-                el.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaRoja.png>";
+                el.innerHTML="<img src=img/fichaRoja.png>";
                 el.classList.add("columnaNegra");
                 quinta++;
 
@@ -128,15 +132,16 @@ for(let i = 0; i <= array.length; i++){
                 quinta++;
             }
         } 
-    }
+    
 
-    for(let j=7;j<=7;j++){
+  
         if(i>55 && i < 64){
+            let j = 7;
             if(i%2==0){
                 array[i].setAttribute("id","r"+j+"c"+sexta);
                 //inserta imagen
                 var el = document.getElementById("r"+j+"c"+sexta);
-                el.innerHTML="<img src=C:/Users/Raul/OneDrive/Documentos/DAW/M12/img/fichaRoja.png>";
+                el.innerHTML="<img src=img/fichaRoja.png>";
                 el.classList.add("columnaNegra");
                 sexta++;
 
@@ -144,7 +149,7 @@ for(let i = 0; i <= array.length; i++){
                 sexta++;
             }
         } 
-    }
+    
 
 
     

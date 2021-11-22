@@ -3,7 +3,6 @@ $( document ).ready(function() {
 });
 
 
-
 var partida = new Partida();
 var tabla = new Tauler();
 var fitxa = new Fitxa();
