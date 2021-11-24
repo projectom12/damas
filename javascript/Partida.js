@@ -3,19 +3,16 @@ class Partida{
   
     constructor(){
         this._booleanCanviTorn = true;
-    
-        
     }
  
      saveNames(){
-
 
         let inputValueJug1 = document.getElementById("jug1").value; 
         let inputValueJug2 = document.getElementById("jug2").value; 
         inputValueJug1 = "raul";
         inputValueJug2 = "rulas";
     
-        if(inputValueJug1 !="" && inputValueJug2 != "")    {
+        if(inputValueJug1 !="" && inputValueJug2 != ""){
        
        
         var con=document.getElementById("jugador1");
@@ -27,7 +24,7 @@ class Partida{
         
 
         //ESCONDE MODAL
-        //$('#exampleModal').modal('hide')
+        $('#exampleModal').modal('hide');
         
         //LLENA TABLERO
         tabla.ompleTauler();
@@ -40,15 +37,13 @@ class Partida{
 
         
     }else{
-        $('#exampleModal').modal('show')
+   
+       $('#exampleModal').modal('show')
+     
+
     }
 
 
-      
-    
-    
-    
-        
     }
 
     get booleanCanviTorn(){

@@ -1,25 +1,9 @@
 class Fitxa{
 
-    constructor(numberFila, numberColumna, booleanReina, stringColor){
-        this._numberFila = numberFila;
-        this._numberColumna = numberColumna;
+    constructor(booleanReina, stringColor,id){
         this._booleanReina = booleanReina;
         this._stringColor = stringColor;
-    }
-    
-    get numberFila(){
-        return this._numberFila;
-    }
-    set numberFila(numberFila){
-        this._numberFila = numberFila;
-    }
-
-    get numberColumna(){
-        return this._numberColumna;
-    }
-
-    set numberColumna(numberColumna){
-        this._numberColumna = numberColumna;
+        this._id = id;
     }
 
     get booleanReina(){
@@ -38,9 +22,14 @@ class Fitxa{
         this._stringColor = stringColor;
     }
 
-    comprovaDesti(){
-
+    get id(){
+        return this._id;
     }
+
+    set id(id){
+        this._id = id;
+    }
+
 }
 
     

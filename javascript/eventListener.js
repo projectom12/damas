@@ -1,6 +1,4 @@
 //Event listener
-  
-
 let array2 = document.getElementsByClassName("columnanegra");
 let r;
 let c;
@@ -12,7 +10,6 @@ let rojoAnteriorId;
 let VerdeAnteriorId;
 
 
-
 // while(booleanCanviTorn!=false)
 
 for(let i = 0; i < array2.length; i++){
@@ -20,25 +17,17 @@ for(let i = 0; i < array2.length; i++){
     array2[i].addEventListener("click", function(){
     r = parseInt(this.getAttribute("id").charAt(1));
     c = parseInt(this.getAttribute("id").charAt(3));
-    
-  
-  
 
+    console.log(r,c);
+  
     contingut = tabla.seleciona(r,c);
+
     //console.log(contingut.stringColor);
 
     if(rojo==1){
         document.getElementById(rojoAnteriorId).classList.remove("clickRojo");
-       // rojoAnteriorId.classList.remove("clickRojo");
-        //console.log("id anterior",rojoAnteriorId)
     }
-    //si es True el boolean de partida juegan blancas sino negras
-    //to do
-    //if(contingut.stringColor && partida.booleanCanviTorn){}
-
-    //console.log(partida.booleanCanviTorn);
-    //if(partida.booleanCanviTorn){
-    
+  
     //Si ja n'hi ha un click verd
   
     if(document.getElementsByClassName("clickVerde")[0]){
@@ -57,7 +46,6 @@ for(let i = 0; i < array2.length; i++){
             }
 
            // alert("no pot ser una destinacio posible");
-
 
                 }else{           
                     //console.log(this.getAttribute("id"));

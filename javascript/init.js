@@ -1,5 +1,5 @@
 $( document ).ready(function() {
-    $('#exampleModal').modal('hide')
+    $('#exampleModal').modal('show');
 });
 
 
@@ -7,7 +7,9 @@ var partida = new Partida();
 var tabla = new Tauler();
 var fitxa = new Fitxa();
 
-partida.saveNames();
+ partida.saveNames();
+
+
 
 
 

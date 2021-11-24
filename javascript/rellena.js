@@ -2,22 +2,16 @@
 // console.log(array);
 
 let array = document.getElementsByClassName("columna");
-
-let segunda=0;
-let tercer=0;
-let quarta=0;
-let quinta=0;
-let sexta=0;
-let septima=0;
-let octava=0;
-
+let fila2=0;
+let fila3=0;
+let fila4=0;
+let fila5=0;
+let fila6=0;
+let fila7=0;
+let fila8=0;
 
 for(let i = 0; i <= array.length; i++){
   
-   
-    // for(let j=0;j<=0;j++){
-    //     console.log("FOR" + j);
-
     if(i<8){
         let j = 0;
         if(i%2!=0){
@@ -27,140 +21,113 @@ for(let i = 0; i <= array.length; i++){
             //inserta imagen
             el.innerHTML="<img src=img/fichaNegra.png>";
             el.classList.add("columnaNegra");
-          
-
-        }
-    // } 
-
     
-    }
+        }
 
-    // for(let j=1;j<=1;j++){
+    }
     if(i>7 && i < 16){
         let j = 1;
         if(i%2==0){
-            array[i].setAttribute("id","r"+"1"+"c"+segunda);
+            array[i].setAttribute("id","r"+"1"+"c"+fila2);
             //inserta imagen
-            var el = document.getElementById("r"+j+"c"+segunda);
+            var el = document.getElementById("r"+j+"c"+fila2);
             el.innerHTML="<img src=img/fichaNegra.png>";
             el.classList.add("columnaNegra");
-            segunda++;
+            fila2++;
 
         }else{
-            segunda++;
+            fila2++;
         }
     } 
-// }
-
    
         if(i>15 && i < 24){
             let j = 2;
             if(i%2!=0){
-                array[i].setAttribute("id","r"+j+"c"+tercer);
+                array[i].setAttribute("id","r"+j+"c"+fila3);
                  //inserta imagen
-                var el = document.getElementById("r"+j+"c"+tercer);
+                var el = document.getElementById("r"+j+"c"+fila3);
                 el.innerHTML="<img src=img/fichaNegra.png>";
                 el.classList.add("columnaNegra");
-                tercer++;
+                fila3++;
 
             }else{
-                tercer++;
+                fila3++;
             }
         } 
     
-
         if(i>23 && i < 32){
             let j = 3;
             if(i%2==0){
-                array[i].setAttribute("id","r"+j+"c"+septima);
+                array[i].setAttribute("id","r"+j+"c"+fila7);
                  //inserta imagen
-                var el = document.getElementById("r"+j+"c"+septima);
+                var el = document.getElementById("r"+j+"c"+fila7);
                 el.classList.add("columnaNegra");
-                septima++;
+                fila7++;
 
             }else{
-                septima++;
+                fila7++;
             }
         } 
     
-
-   
         if(i>31 && i < 40){
             let j = 4;
             if(i%2!=0){
-                array[i].setAttribute("id","r"+j+"c"+octava);
+                array[i].setAttribute("id","r"+j+"c"+fila8);
                  //inserta imagen
-                var el = document.getElementById("r"+j+"c"+octava);
+                var el = document.getElementById("r"+j+"c"+fila8);
                 el.classList.add("columnaNegra");
-                octava++;
+                fila8++;
 
             }else{
-                octava++;
+                fila8++;
             }
         } 
     
-
-   
         if(i>39 && i < 48){
             let j = 5;
             if(i%2==0){
-                array[i].setAttribute("id","r"+j+"c"+quarta);
+                array[i].setAttribute("id","r"+j+"c"+fila4);
                 //inserta imagen
-                var el = document.getElementById("r"+j+"c"+quarta);
+                var el = document.getElementById("r"+j+"c"+fila4);
                 el.innerHTML="<img src=img/fichaRoja.png>";
                 el.classList.add("columnaNegra");
-                quarta++;
+                fila4++;
 
             }else{
-                quarta++;
+                fila4++;
             }
         } 
-    
-
    
         if(i>47 && i < 56){
             let j = 6;
             if(i%2!=0){
-                array[i].setAttribute("id","r"+j+"c"+quinta);
+                array[i].setAttribute("id","r"+j+"c"+fila5);
                 //inserta imagen
-                var el = document.getElementById("r"+j+"c"+quinta);
+                var el = document.getElementById("r"+j+"c"+fila5);
                 el.innerHTML="<img src=img/fichaRoja.png>";
                 el.classList.add("columnaNegra");
-                quinta++;
+                fila5++;
 
             }else{
-                quinta++;
+                fila5++;
             }
         } 
     
-
-  
         if(i>55 && i < 64){
             let j = 7;
             if(i%2==0){
-                array[i].setAttribute("id","r"+j+"c"+sexta);
+                array[i].setAttribute("id","r"+j+"c"+fila6);
                 //inserta imagen
-                var el = document.getElementById("r"+j+"c"+sexta);
+                var el = document.getElementById("r"+j+"c"+fila6);
                 el.innerHTML="<img src=img/fichaRoja.png>";
                 el.classList.add("columnaNegra");
-                sexta++;
+                fila6++;
 
             }else{
-                sexta++;
+                fila6++;
             }
         } 
     
-
-
-    
-
-        
-    
-     
-
-    
-
-
 
 
 }

@@ -14,7 +14,7 @@
 
      <div class="hud">		
 				<!-- Modal -->
-				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-keyboard="false">
 					<div class="modal-dialog">
 					<div class="modal-content">
 						<div class="tituloEstupido">
@@ -26,8 +26,8 @@
 							<p>Nom Jugador 2: <input id="jug2" type="text" name="nom" size="25"></p>
 						</div>
 						<div class="modal-footer">
+						<!-- <button id="play" type="button">play</button> -->
 						<button onclick="partida.saveNames()" id="play" type="button">play</button>
-						
 						</div>
 					</div>
 					</div>
@@ -132,6 +132,7 @@
 						</div>
 						<div class="menu">
 							<h4 style="color: white;">Menu </h4>
+							<button id="reinicia">Reinicia bro</button>
 						</div>
 						<div class="Jug2">
 							<h4 id="jugador2">Player 1 name: </h4>
@@ -147,6 +148,7 @@
 	<script src="javascript/Fitxa.js"></script>
 	<script src="javascript/init.js"> </script>
 	<script src="javascript/eventListener.js"> </script>
+
  
 
 
