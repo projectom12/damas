@@ -13,16 +13,25 @@ let VerdeAnteriorId;
 // while(booleanCanviTorn!=false)
 
 for(let i = 0; i < array2.length; i++){
+  
 
     array2[i].addEventListener("click", function(){
+
+        // if(partida.quedanMovimientos==false){
+        //     prompt("no te quedan movimientos");
+        // }
+        
+        
     r = parseInt(this.getAttribute("id").charAt(1));
     c = parseInt(this.getAttribute("id").charAt(3));
 
     console.log(r,c);
-  
-    contingut = tabla.seleciona(r,c);
 
-    //console.log(contingut.stringColor);
+   
+    // if((r<8&&r<=0)&&(j<8&&j<=0)){
+    contingut = tabla.seleciona(r,c);
+    // }
+
 
     if(rojo==1){
         document.getElementById(rojoAnteriorId).classList.remove("clickRojo");
@@ -43,6 +52,7 @@ for(let i = 0; i < array2.length; i++){
             if(verde==1){
                 document.getElementById(VerdeAnteriorId).classList.remove("clickVerde");
                 verde=0;
+             
             }
 
            // alert("no pot ser una destinacio posible");
@@ -51,7 +61,9 @@ for(let i = 0; i < array2.length; i++){
                     //console.log(this.getAttribute("id"));
                     tabla.destinacioX = r;
                     tabla.destinacioY = c;
+                    //tabla.compruebaPierde();
                     tabla.actualiza();
+                   
                    // console.log(tabla.matriuTauler);
                     
                    // alert("comprobem el moviment");
@@ -59,6 +71,8 @@ for(let i = 0; i < array2.length; i++){
         
 
     }else{
+        
+
          
            
        // console.log(partida.booleanCanviTorn);
@@ -71,8 +85,7 @@ for(let i = 0; i < array2.length; i++){
                 VerdeAnteriorId = this.getAttribute("id");
                 tabla.origenX=r;
                 tabla.origenY=c;
-
-                
+              
                 
 
             }else{
@@ -86,16 +99,6 @@ for(let i = 0; i < array2.length; i++){
 
 
         }
-    
-
-
-    
-
-    
-
-       
-    
-
 
 
 

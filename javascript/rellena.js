@@ -1,6 +1,9 @@
- 
-// console.log(array);
+class Rellena{ 
 
+// console.log(array);
+constructor(){}
+
+omplehtml(){
 let array = document.getElementsByClassName("columna");
 let fila2=0;
 let fila3=0;
@@ -131,7 +134,9 @@ for(let i = 0; i <= array.length; i++){
 
 
 }
+}
 
+}
 
   
             

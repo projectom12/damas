@@ -1,16 +1,22 @@
 class Partida{
     booleanCanviTorn=true;
-  
+    quedanMovimientos=true;
+    iniciaPartida=true;
+    inputValueJug1="";
+    inputValueJug2="";
+
     constructor(){
         this._booleanCanviTorn = true;
+        this._quedanMovimientos=true;
+        document.getElementById('play').addEventListener("click", () => {this.saveNames()});
     }
  
      saveNames(){
 
         let inputValueJug1 = document.getElementById("jug1").value; 
         let inputValueJug2 = document.getElementById("jug2").value; 
-        inputValueJug1 = "raul";
-        inputValueJug2 = "rulas";
+        //inputValueJug1 = "raul";
+        //inputValueJug2 = "rulas";
     
         if(inputValueJug1 !="" && inputValueJug2 != ""){
        
@@ -21,13 +27,18 @@ class Partida{
         con.innerHTML  = inputValueJug1; 
         con2.innerHTML = inputValueJug2;
 
-        
+    
 
         //ESCONDE MODAL
         $('#exampleModal').modal('hide');
         
         //LLENA TABLERO
         tabla.ompleTauler();
+        
+
+        //boton reinicia
+        document.getElementById('reinicia').addEventListener("click", () => {this.reinicia()});
+
         
 
       
@@ -43,7 +54,17 @@ class Partida{
 
     }
 
+    }
 
+    reinicia(){
+        location.reload();
+    }
+
+    terminaJuego(){
+        if(this.quedanMovimientos==false){
+            prompt("termina juego no quedan movimientos");
+        }
+        
     }
 
     get booleanCanviTorn(){
@@ -52,6 +73,14 @@ class Partida{
 
     set booleanCanviTorn(booleanCanviTorn){
         this._booleanCanviTorn = booleanCanviTorn;
+    }
+
+    get quedanMovimientos(){
+        return this._quedanMovimientos;
+    }
+
+    set quedanMovimientos(quedanMovimientos){
+        this._quedanMovimientos = quedanMovimientos;
     }
 
 }

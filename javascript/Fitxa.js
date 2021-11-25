@@ -3,7 +3,6 @@ class Fitxa{
     constructor(booleanReina, stringColor,id){
         this._booleanReina = booleanReina;
         this._stringColor = stringColor;
-        this._id = id;
     }
 
     get booleanReina(){
@@ -18,17 +17,6 @@ class Fitxa{
         return this._stringColor;
     }
 
-    set stringColor(stringColor){
-        this._stringColor = stringColor;
-    }
-
-    get id(){
-        return this._id;
-    }
-
-    set id(id){
-        this._id = id;
-    }
 
 }
 
