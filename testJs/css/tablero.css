@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.marcador_esquerra{
+  position: absolute;
+  background-color: blue;
+  width: 100px;
+  height: 100px;
+}
+.marcador_dreta{
+
+ position: absolute;
+  
+  background-color: black;
+  width: 100px;
+  height: 100px;
+}
+.main_container {
+    position: absolute;
+    order: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vh;
+    height: 100vh;
+    background-color: burlywood;
+}
+
+.up_subcontainer {
+    width: 90%;
+    height: 90%;
+    float: left;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: green;
+}
+
+.down_subcontainer {
+    width: 90%;
+    height: 10%;
+    float: left;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background-color: orange;
+
+}
+.columna{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: wheat;
+}
+.columnaNegra{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+
+}
+.clickVerde{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: green;
+
+}
+.clickRojo{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
+    background-color: red;
+}
+
+.fila{
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 12.5%;
+}
+.Jug1{
+float: left;
+display: flex;
+flex-direction: row;
+width: 34%;
+height: 100%;
+background-color: green;
+}
+.menu{
+float: left;
+display: flex;
+flex-direction: row;
+width: 32%;
+height: 100%;
+background-color: black;
+}
+.Jug2{
+direction: row;
+display: flex;
+flex-direction: row;
+width: 34%;
+height: 100%;
+background-color: pink;
+}
+
+
+@media only screen and (orientation: portrait) {
+div.main_container {
+width: 100vw;
+height: 100vw;
+}
+}

@@ -22,14 +22,20 @@ for(let i = 0; i < array2.length; i++){
         // }
         
         
-    r = parseInt(this.getAttribute("id").charAt(1));
-    c = parseInt(this.getAttribute("id").charAt(3));
+    // r = parseInt(this.getAttribute("id").charAt(1));
+    // c = parseInt(this.getAttribute("id").charAt(3));
 
     console.log(r,c);
-   if((r<8&&r<=0)&&(c<8&&c<=0)){
-       console.log("entra un valor valid");
-   }else{
+    r = 9;
+    c=9;
+    
+   if((r<8&&r<=0)&&(j<8&&j<=0)){
     contingut = tabla.seleciona(r,c);
+       
+   }else{
+    alert("clica un casella valida");
+    console.log("entra un valor valid");
+    
     }
 
 
