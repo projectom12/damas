@@ -79,7 +79,10 @@ class Tauler{
         con.innerHTML  = this.fitxasBlackContador;
         con2.innerHTML = this.fitxasWhiteContador; 
         if(this.fitxasWhiteContador==0||this.fitxasBlackContador==0){
+       
             partida.terminaJuego();
+            this.fitxasBlackContador=12;
+            this.fitxasWhiteContador=12;
         }
     }
 

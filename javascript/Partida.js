@@ -85,18 +85,19 @@ class Partida{
 
     if(tabla.fitxasBlackContador==0){
       guanyador.innerHTML = this.inputValueJug2;
-      this.contadorWinsJug1++;
-
+      this.contadorWinsJug2++;
+      console.log(this.contadorWinsJug1,this.contadorWinsJug2)
 
     }
     if(tabla.fitxasWhiteContador==0){
         guanyador.innerHTML = this.inputValueJug1;
-        this.contadorWinsJug2++;
+        this.contadorWinsJug1++;
+        console.log(this.contadorWinsJug1,this.contadorWinsJug2)
         }
     
         jug1Puntuacio.innerHTML=this.contadorWinsJug1;
         jug2Puntuacio.innerHTML=this.contadorWinsJug2;
-
+        console.log(this.contadorWinsJug1,this.contadorWinsJug2)
         jug1NombrePuntuacion.innerHTML=this.inputValueJug1;
         jug2NombrePuntuacion.innerHTML=this.inputValueJug2;
 
