@@ -3,6 +3,11 @@ class Partida{
     iniciaPartida=true;
     inputValueJug1="";
     inputValueJug2="";
+    name1;
+    name2;
+    contadorWinsJug1=0;
+    contadorWinsJug2=0;
+    
 
     constructor(){
         this._booleanCanviTorn = true;
@@ -12,19 +17,19 @@ class Partida{
  
      saveNames(){
 
-        let inputValueJug1 = document.getElementById("jug1").value; 
-        let inputValueJug2 = document.getElementById("jug2").value; 
+         this.inputValueJug1 = document.getElementById("jug1").value; 
+         this.inputValueJug2 = document.getElementById("jug2").value; 
         //inputValueJug1 = "raul";
         //inputValueJug2 = "rulas";
     
-        if(inputValueJug1 !="" && inputValueJug2 != ""){
+        if(this.inputValueJug1 !="" && this.inputValueJug2 != ""){
        
        
-        var con=document.getElementById("jugador1");
-        var con2=document.getElementById("jugador2");
+         let name1=document.getElementById("jugador1");
+         let name2=document.getElementById("jugador2");
         //INSERTA NOMBRES DE LOS JUGADORES    
-        con.innerHTML  = inputValueJug1; 
-        con2.innerHTML = inputValueJug2;
+        name1.innerHTML  = this.inputValueJug1; 
+        name2.innerHTML = this.inputValueJug2;
 
     
 
@@ -43,11 +48,11 @@ class Partida{
       
        // tabla.actualiza();
 
-        
+
 
         
     }else{
-   
+        //torna a mostra el modal ja que el noms estan buits
         $( document ).ready(function() {
             $('#exampleModal').modal('show');
         });
@@ -56,14 +61,76 @@ class Partida{
     }
 
     }
-
+    //recarga la pagina
     reinicia(){
         location.reload();
     }
 
     terminaJuego(){
-      console.log("Ha guanyat :"+this.inputValueJug1);
-      console.log("vols tornar a jugar?");
+ 
+    $( document ).ready(function() {
+        $('#exampleModal2').modal('show');
+    });
+
+
+    let guanyador = document.getElementById("guanyador");
+    let jug1Puntuacio = document.getElementById("jug1Puntuacio");
+    let jug2Puntuacio = document.getElementById("jug2Puntuacio");
+    let jug1NombrePuntuacion = document.getElementById("player1");
+    let jug2NombrePuntuacion = document.getElementById("player2");
+    
+    // <p id="guanyador"></p>
+    // <p id="jug1Puntuacio"></p>
+    // <p id="jug2Puntuacio"></p>
+
+    if(tabla.fitxasBlackContador==0){
+      guanyador.innerHTML = this.inputValueJug2;
+      this.contadorWinsJug1++;
+
+
+    }
+    if(tabla.fitxasWhiteContador==0){
+        guanyador.innerHTML = this.inputValueJug1;
+        this.contadorWinsJug2++;
+        }
+    
+        jug1Puntuacio.innerHTML=this.contadorWinsJug1;
+        jug2Puntuacio.innerHTML=this.contadorWinsJug2;
+
+        jug1NombrePuntuacion.innerHTML=this.inputValueJug1;
+        jug2NombrePuntuacion.innerHTML=this.inputValueJug2;
+
+        tabla.ompleTauler();
+        //Guardem totes les caselles en un array
+        let arrayColumns = document.getElementsByClassName("columnaNegra");
+        //recorrem les caselles
+        for(let i=0;i<arrayColumns.length;i++){
+            //si te fills
+            if(arrayColumns[i].hasChildNodes){
+                //si el primer fill no es null entra i remplaça deixant-ho buit
+                if(arrayColumns[i].firstChild!=null){
+                  arrayColumns[i].firstChild.replaceWith();
+            
+                }       
+        }
+    
+        }
+
+        rellena.omplehtml();  
+        document.getElementById('juga').addEventListener("click", () => {this.amagaModal()});
+
+    }
+
+
+    amagaModal(){
+        $( document ).ready(function() {
+            $('#exampleModal2').modal('hide');
+        });
+        tabla.fitxasBlackContador=1;
+        tabla.fitxasWhiteContador=1;
+        this.booleanCanviTorn=true;
+        tabla.actualiza();
+
         
     }
 

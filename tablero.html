@@ -12,7 +12,7 @@
 	</head>
 	<body>
 
-     <div class="hud">		
+     <div class="hud">	
 				<!-- Modal -->
 				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-keyboard="false">
 					<div class="modal-dialog">
@@ -22,12 +22,42 @@
 						
 						</div>
 						<div class="modal-body">
-							<p>Nom Jugador 1: <input id="jug1" type="text" name="nom" size="25"></p>
-							<p>Nom Jugador 2: <input id="jug2" type="text" name="nom" size="25"></p>
+							<p class="estiloJug1">Nom Jugador 1: <input id="jug1" type="text" name="nom" size="25"></p>
+							<p class="estiloJug2">Nom Jugador 2: <input id="jug2" type="text" name="nom" size="25"></p>
 						</div>
 						<div class="modal-footer">
 						<button id="play" type="button">Play</button>
-						<!-- <button onclick="partida.saveNames()" id="play" type="button">play</button> -->
+						</div>
+					</div>
+					</div>
+				</div>
+				<!-- Modal termina partida -->
+				<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-keyboard="false">
+					<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="tituloEstupido">
+						<h5 style="font-size: 60px ; " class="tituloDames">Puntuació</h5>
+						</div>
+						<div class="modal-body">
+						
+							<div class="puntos">
+								<p>Guanyador: &nbsp</p><p id="guanyador"></p>
+							</div>
+							<div class="puntos">
+								<p id="player1"></p>
+								<p> :&nbsp </p>
+								<p id="jug1Puntuacio"></p>
+							</div>
+							<div class="puntos">
+								<p id="player2"></p>
+								<p>: &nbsp</p>
+								<p id="jug2Puntuacio"></p>
+							</div>
+							
+
+						</div>
+						<div class="modal-footer">
+						<button id="juga" type="button">Torna a jugar</button>
 						</div>
 					</div>
 					</div>
@@ -128,14 +158,15 @@
 					</div>
 					<div class="down_subcontainer">
 						<div class="Jug1">
-							<h4 id="jugador1">Player 1 name: </h4>
+							<h4 class="estiloJug1" id="jugador1">Player 1 name: </h4>
+							<p class="estiloJug1" id="fitxaJug1">12</p>
 						</div>
 						<div class="menu">
-							<!--<h4 style="color: white;">Menu </h4>-->
-							<button id="reinicia">Reinicia bro</button>
+							<div id="reinicia">Restart</div>
 						</div>
 						<div class="Jug2">
-							<h4 id="jugador2">Player 2 name: </h4>
+							<h4 class="estiloJug2" id="jugador2">Player 2 name: </h4>
+							<p class="estiloJug2" id="fitxaJug2">12</p>
 						</div>
 					</div>
 				</div>

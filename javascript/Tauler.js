@@ -13,8 +13,7 @@ class Tauler{
 
 
     constructor(matriuTauler){
-    //    let fitxasWhiteContador=12;
-    //    let fitxasBlackContador=12;
+
         matriuTauler = [ 
             [0,0,0,0,0,0,0,0],
             [0,0,0,0,0,0,0,0],
@@ -28,7 +27,7 @@ class Tauler{
     }
 
     ompleTauler(){
-
+        //Creem les fitxes
         var Fitxa1 = new Fitxa(false,"black");
         var Fitxa2 = new Fitxa(false,"black");
         var Fitxa3 = new Fitxa(false,"black");
@@ -58,7 +57,7 @@ class Tauler{
         var Fitxa22 = new Fitxa(false,"white");
         var Fitxa23 = new Fitxa(false,"white");
         var Fitxa24 = new Fitxa(false,"white");
-
+        //omplim de fitxes la matriu
         this.matriuTauler = [ 
             [0,Fitxa1,0,Fitxa2,0,Fitxa3,0,Fitxa4],
             [Fitxa5,0,Fitxa6,0,Fitxa7,0,Fitxa8,0],
@@ -74,21 +73,23 @@ class Tauler{
       
     }
     termina(){
-        if(tabla.fitxasWhiteContador==0||tabla.fitxasBlackContador==0){
+        var con=document.getElementById("fitxaJug1");
+        var con2=document.getElementById("fitxaJug2");
+        //INSERTA CUANTAS FICHAS QUEDAN A CADA JUGADOR    
+        con.innerHTML  = this.fitxasBlackContador;
+        con2.innerHTML = this.fitxasWhiteContador; 
+        if(this.fitxasWhiteContador==0||this.fitxasBlackContador==0){
             partida.terminaJuego();
         }
     }
 
     actualiza(){
-       // document.getElementById("reinicia").addEventListener("click",partida.reinicia(),false);
        
-///MOVE NEGRAS////////      
-////move negras hacia abajo de casilla en casilla
+    ///MOVE NEGRAS////////      
+   ///move negras hacia abajo de casilla en casilla
     if((this.matriuTauler[this.origenX][this.origenY].stringColor=="black")&& (this.matriuTauler[this.origenX][this.origenY].booleanReina==false)){  
-    //this.compruebaPierde();
+    
     this.moveFitxaNegra();
-    console.log("white",this.fitxasWhiteContador);
-    console.log("black",this.fitxasBlackContador);
     this.termina();
     
     }
@@ -96,21 +97,17 @@ class Tauler{
     //move blancas
     //si la fitxa pasada es blanca i no es reina entra
     if((this.matriuTauler[this.origenX][this.origenY].stringColor=="white") && (this.matriuTauler[this.origenX][this.origenY].booleanReina==false)){ 
-        //this.compruebaPierde();
+       
         this.moveBlancas();
-        console.log("white",this.fitxasWhiteContador);
-        console.log("black",this.fitxasBlackContador);
         this.termina();
         
         }
-        /////////////////////////////////////EMPIEZAN LAS REINAS//////////////////////////////////////////////
+        /////////////////////////////////////EMPIEZAN LAS REINAS BLANCAS//////////////////////////////////////////////
         /////////////////////////BLANCAS/////////////////////////////
             //move blancas reinas
     if(this.matriuTauler[this.origenX][this.origenY].stringColor=="white" && this.matriuTauler[this.origenX][this.origenY].booleanReina==true){ 
 
        this.moveBlancasReinas();
-       console.log("white",this.fitxasWhiteContador);
-       console.log("black",this.fitxasBlackContador);
        this.termina();
         
      }
@@ -121,37 +118,33 @@ class Tauler{
     if(this.matriuTauler[this.origenX][this.origenY].stringColor=="black" && this.matriuTauler[this.origenX][this.origenY].booleanReina==true){
 
         this.moveFitxaNegraReina();    
-        console.log("white",this.fitxasWhiteContador);
-        console.log("black",this.fitxasBlackContador);
         this.termina();
 
     }
 
     this.mataDerecha=false;
     this.mataIzquierda=false;
-    console.log(this.mataDerecha);
-    console.log(this.mataIzquierda);
 
      }
 
     seleciona(r,c){
         return this.matriuTauler[r][c];
     }
-    //remove class everde
+    //remove class verd
     //esborra imatge
     imprimeTabla(){
 
         let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
-        divImage.firstChild.replaceWith("");
+        divImage.firstChild.replaceWith();
         divImage.classList.remove("clickVerde");
        
         this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
         this.matriuTauler[this.origenX][this.origenY]=0;
-           //inserta imagen
+           //inserta imatge
         let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
         img.innerHTML="<img src=img/fichaRoja.png>";
        
-        //juegan ahora las negras
+      //jugan ara les negres
         partida.booleanCanviTorn = true;
 
     }
@@ -163,46 +156,46 @@ class Tauler{
        
         this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
         this.matriuTauler[this.origenX][this.origenY]=0;
-           //inserta imagen
+           //inserta imatge
         let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
         img.innerHTML="<img src=img/fichaRojaReina.png>";
        
-        //juegan ahora las negras
+      //jugan ara les negres
         partida.booleanCanviTorn = true;
       
     }
     
-    //remove class everde
+    //remove class verd
     //esborra imatge
     imprimeTablaNegre(){
         let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
-        divImage.firstChild.replaceWith("");
+        divImage.firstChild.replaceWith();
         divImage.classList.remove("clickVerde");
        
          this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
          this.matriuTauler[this.origenX][this.origenY]=0;
-           //inserta imagen
+           //inserta imatge
          let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
          img.innerHTML="<img src=img/fichaNegra.png>";
        
-         //juegan ahora las blancas
+       //jugan ara les blanques
          partida.booleanCanviTorn = false;
     }
     imprimeTablaReinaBlack(){
         let divImage = document.getElementById("r"+this.origenX+"c"+this.origenY);
-        divImage.firstChild.replaceWith("");
+        divImage.firstChild.replaceWith();
         divImage.classList.remove("clickVerde");
        
          this.matriuTauler[this.destinacioX][this.destinacioY]= this.matriuTauler[this.origenX][this.origenY];
          this.matriuTauler[this.origenX][this.origenY]=0;
-           //inserta imagen
+           //inserta imatge
          let img = document.getElementById("r"+this.destinacioX+"c"+this.destinacioY);
          img.innerHTML="<img src=img/fichaNegraReina.png>";
        
-         //juegan ahora las blancas
+       //jugan ara les blanques
          partida.booleanCanviTorn = false;
     }
-
+    //comproba si ha arribat a la ultima fila per asignar-li si es reina
     comprovaEsReinaBlanca(){
          if(this.destinacioX==0){
             this.matriuTauler[this.destinacioX][this.destinacioY].booleanReina=true;
@@ -210,6 +203,7 @@ class Tauler{
             img.innerHTML="<img src=img/fichaRojaReina.png>";
             }
     }
+    //comproba si ha arribat a la ultima fila per asignar-li si es reina
     comprovaEsReinaNegra(){
         if(this.destinacioX==7){
             this.matriuTauler[this.destinacioX][this.destinacioY].booleanReina=true;
@@ -219,32 +213,36 @@ class Tauler{
     }
     ////////////////MOVE NEGRAS/////////////////////////////////////
     moveFitxaNegra(){
+        //moviment cap a baix en diagonal
         if(((this.destinacioX-this.origenX === 1) &&  (this.origenY-this.destinacioY === 1 || this.origenY-this.destinacioY===-1))){
             this.imprimeTablaNegre();
             this.comprovaEsReinaNegra();
         }
+        //si esta la fitxa a la dreta només comproba si exiteix una fitxa a la esquerra, si esta es de color contrari pot matar
         if(this.origenY==7){
                 if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="white"){
                     this.mataIzquierda=true;                                   
                 }
             }
+        //si esta la fitxa a la esquerra només comproba si exiteix una fitxa a la dreta, si esta es de color contrari pot matar
         if(this.origenY==0){
                 if(this.matriuTauler[this.origenX+1][this.origenY+1].stringColor=="white"){
                     this.mataDerecha=true;
                 }
             }
-        //mata hacia la derecha
+        //si esta la fitxa entre la columna  0 i 7, comproba si exiteix una fitxa a la dreta, si esta  es de color contrari pot matar
         if(this.origenY>0&&this.origenY<7){
                 if(this.matriuTauler[this.origenX+1][this.origenY+1].stringColor=="white"){
                     this.mataDerecha=true;            
                 }
             }
+        //si esta la fitxa entre la columna  0 i 7, comproba si exiteix una fitxa a la esquerra, si esta es de color contrari pot matar
         if(this.origenY>0&&this.origenY<7){
                 if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="white"){
                     this.mataIzquierda=true;
                 }
             }
-            //funciona
+        //fa el moviment de mata a la dreta
         if((this.destinacioX-this.origenX === 2 )&&(this.origenY-this.destinacioY=== 2) && (this.mataIzquierda==true)){
             
                     this.imprimeTablaNegre();
@@ -254,13 +252,13 @@ class Tauler{
                     let rDestinacio=this.origenX+1;
                     let cDestinacio=this.origenY-1;
                     let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
-                    esborraImg.firstChild.replaceWith("");
+                    esborraImg.firstChild.replaceWith();
 
                     this.mataDerecha=false;
                     this.mataIzquierda=false;
                     this.fitxasWhiteContador--;
                 }
-    
+        //fa el moviment de mata a la esquerra
         if(((this.destinacioX-this.origenX === 2 ))&&(this.origenY-this.destinacioY === -2) && (this.mataDerecha==true)){
             
                     this.imprimeTablaNegre();
@@ -269,7 +267,7 @@ class Tauler{
                     let rDestinacio=this.origenX+1;
                     let cDestincaio=this.origenY+1;
                     let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
-                    esborraImg.firstChild.replaceWith("");               
+                    esborraImg.firstChild.replaceWith();               
                     this.mataDerecha = false;
                     this.mataIzquierda = false;
                     this.fitxasWhiteContador--;
@@ -319,7 +317,7 @@ class Tauler{
         let rDestinacio=this.origenX-1;
         let cDestincaio=this.origenY+1;
         let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
-        esborraImg.firstChild.replaceWith("");          
+        esborraImg.firstChild.replaceWith();          
         this.mataDerecha = false;
         this.mataIzquierda = false;
         this.fitxasBlackContador--;
@@ -332,7 +330,7 @@ class Tauler{
         let rDestinacio=this.origenX-1;
         let cDestinacio=this.origenY-1;
         let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
-        esborraImg.firstChild.replaceWith("");
+        esborraImg.firstChild.replaceWith();
         this.mataDerecha = false;
         this.mataIzquierda = false;
         this.fitxasBlackContador--;
@@ -341,6 +339,7 @@ class Tauler{
 
     //////////moveBlancasReinas/////////////////
     moveBlancasReinas(){
+    //si esta a la ultima columna només revisa si n'hi ha una fitxa a dalt a la esquerra i si no es del color contrari pot matar
         if(this.origenY==7){
             if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="black"){
                 this.mataIzquierda=true;                                       
@@ -395,21 +394,19 @@ class Tauler{
 
         }
        
-     //movimiento hacia abajo
+
         if (((this.destinacioX-this.origenX === 1) &&  (this.origenY-this.destinacioY === 1 || this.origenY-this.destinacioY===-1))){
          
          this.imprimeTablaReinaWhite();
 
         }
-        //movimiento hacia arriba
-         //moviment fitxa blanca cap adalt
+      
         if(((this.destinacioX-this.origenX === -1) &&  (this.origenY-this.destinacioY === -1 || this.origenY-this.destinacioY=== 1))){
            
             this.imprimeTablaReinaWhite();
 
         }
-      //MATA IZQUIERDA 1
-      //mata hacia abajo
+
       if(((this.destinacioX-this.origenX === 2 ))&&( this.origenY-this.destinacioY=== 2) && (this.mataIzquierda==true)){
         
             this.imprimeTablaReinaWhite();
@@ -417,11 +414,11 @@ class Tauler{
             let rDestinacio=this.origenX+1;
             let cDestinacio=this.origenY-1;
             let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
-            esborraImg.firstChild.replaceWith("");
+            esborraImg.firstChild.replaceWith();
             this.fitxasBlackContador--;
         
         }
-        //MATA IZQUIERDA 2 
+         
         if(((this.destinacioX-this.origenX === -2 ))&&( this.origenY-this.destinacioY=== 2) && (this.mataIzquierda2==true)){
         
             this.imprimeTablaReinaWhite();
@@ -429,12 +426,11 @@ class Tauler{
             let rDestinacio=this.origenX-1;
             let cDestinacio=this.origenY-1;
             let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
-            esborraImg.firstChild.replaceWith("");
+            esborraImg.firstChild.replaceWith();
             this.fitxasBlackContador--;
               
             }
-        //Mata derecha 1
-        //abajo derecha ((creo) es la 1 de la noxe) 
+
         if(((this.destinacioX-this.origenX === 2 ))&&( this.origenY-this.destinacioY=== -2) && (this.mataDerecha==true)){
         
             this.imprimeTablaReinaWhite();
@@ -444,13 +440,13 @@ class Tauler{
                 let rDestinacio=this.origenX+1;
                 let cDestincaio=this.origenY+1;
                 let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
-                esborraImg.firstChild.replaceWith("");
+                esborraImg.firstChild.replaceWith();
                 this.fitxasBlackContador--;
                          
                  }    
             }
 
-            //MATA DERECHA 2
+            
             if(((this.destinacioX-this.origenX === -2 ))&&( this.origenY-this.destinacioY=== -2) && (this.mataDerecha2==true)){
 
             this.imprimeTablaReinaWhite();
@@ -458,7 +454,7 @@ class Tauler{
             let rDestinacio=this.origenX-1;
             let cDestincaio=this.origenY+1;
             let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
-            esborraImg.firstChild.replaceWith("");
+            esborraImg.firstChild.replaceWith();
             this.fitxasBlackContador--;
         
             }
@@ -470,7 +466,7 @@ class Tauler{
     }
 
     moveFitxaNegraReina(){
-    //comproba si esta a la esquina dreta i p
+    //comproba si esta a la esquina dreta i comprova si n'hi una fitxa a dalt a la esquerra, si esta i es de color contrari pot matar
     if(this.origenY==7){
         if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="white"){
             this.mataIzquierda=true;
@@ -486,7 +482,7 @@ class Tauler{
                 }
     }
 
-//mata hacia la derecha
+//sempre que no estigui al final del tauler i no estigui a les esquines pot matar cap abaix, cap esquerra o dreta
     if(this.origenX!=7){
         if(this.origenY>0&&this.origenY<7){
             if(this.matriuTauler[this.origenX+1][this.origenY+1].stringColor=="white"){
@@ -494,7 +490,6 @@ class Tauler{
                 console.log("abajo derecha: ",this.mataDerecha);
         
                 }
-
             if(this.matriuTauler[this.origenX+1][this.origenY-1].stringColor=="white"){
             this.mataIzquierda=true;
             console.log("abajo izquierda: ",this.mataIzquierda);
@@ -504,7 +499,7 @@ class Tauler{
 
         }
     }
-    //si esta al final no puede restar entoces por eso siempre que no sea 0 puede restar para matar hacia arriba
+    //si esta al final no pot restar doncs per aixo sempre que no sigui 0 pot restar per mata cap a dalt
     if(this.origenX!=0 && this.origenY!=0 && this.origenY!=7){
 
         if(this.matriuTauler[this.origenX-1][this.origenY+1].stringColor=="white"){
@@ -539,7 +534,7 @@ class Tauler{
 
         }
 
-  //moviment cap abaix abajo
+  //moviment cap abaix 
     if(((this.destinacioX-this.origenX === 1) &&  (this.origenY-this.destinacioY === 1 || this.origenY-this.destinacioY===-1))){
     //esborra imatge
     this.imprimeTablaReinaBlack();
@@ -552,7 +547,7 @@ class Tauler{
 
     }
 
-    //MATA IZQUIERDA 1
+    
   if(((this.destinacioX-this.origenX === 2 ))&&( this.origenY-this.destinacioY=== 2) && (this.mataIzquierda==true)){
     
         this.imprimeTablaReinaBlack();
@@ -560,11 +555,11 @@ class Tauler{
         let rDestinacio=this.origenX+1;
         let cDestinacio=this.origenY-1;
         let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
-        esborraImg.firstChild.replaceWith(""); 
+        esborraImg.firstChild.replaceWith(); 
         this.fitxasWhiteContador--;
     
     }
-    //MATA IZQUIERDA 2 
+     
     if(((this.destinacioX-this.origenX === -2 ))&&( this.origenY-this.destinacioY=== 2) && (this.mataIzquierda2==true)){
     
         this.imprimeTablaReinaBlack();
@@ -572,12 +567,11 @@ class Tauler{
         let rDestinacio=this.origenX-1;
         let cDestinacio=this.origenY-1;
         let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestinacio);
-        esborraImg.firstChild.replaceWith("");
+        esborraImg.firstChild.replaceWith();
         this.fitxasWhiteContador--;
 
         }
-    //Mata derecha 1
-    //abajo derecha ((creo) es la 1 de la noxe) 
+ 
     if(((this.destinacioX-this.origenX === 2 ))&&( this.origenY-this.destinacioY=== -2) && (this.mataDerecha==true)){
     
         this.imprimeTablaReinaBlack();
@@ -585,11 +579,11 @@ class Tauler{
         let rDestinacio=this.origenX+1;
         let cDestincaio=this.origenY+1;
         let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
-        esborraImg.firstChild.replaceWith("");
+        esborraImg.firstChild.replaceWith();
         this.fitxasWhiteContador--;
                      
         }
-        //MATA DERECHA 2
+
         if(((this.destinacioX-this.origenX === -2 ))&&( this.origenY-this.destinacioY=== -2) && (this.mataDerecha2==true)){
 
         this.imprimeTablaReinaBlack();
@@ -597,7 +591,7 @@ class Tauler{
         let rDestinacio=this.origenX-1;
         let cDestincaio=this.origenY+1;
         let esborraImg = document.getElementById("r"+rDestinacio+"c"+cDestincaio);
-        esborraImg.firstChild.replaceWith("");
+        esborraImg.firstChild.replaceWith();
         this.fitxasWhiteContador--;
         }
 

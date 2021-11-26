@@ -2,7 +2,7 @@ class Rellena{
 
 // console.log(array);
 constructor(){}
-
+//omple el html amb id i dona un nova clase columnaNegre que serà les caselles on es jugarà
 omplehtml(){
 let array = document.getElementsByClassName("columna");
 let fila2=0;
@@ -26,7 +26,6 @@ for(let i = 0; i <= array.length; i++){
             el.classList.add("columnaNegra");
     
         }
-
     }
     if(i>7 && i < 16){
         let j = 1;

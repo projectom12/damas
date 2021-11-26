@@ -28,7 +28,7 @@ for(let i = 0; i < array2.length; i++){
     console.log(r,c);
     r = 9;
     c=9;
-    
+    //La funció no pot petar perque no li pot posar coordenades fora dels marges del tauler
    if((r<8&&r<=0)&&(j<8&&j<=0)){
     contingut = tabla.seleciona(r,c);
        
